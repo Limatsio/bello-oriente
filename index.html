@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bello Oriente - Comida China | Av. La Florida 7420</title>
+<meta name="description" content="Bello Oriente, comida china tradicional en La Florida. Pide directo por WhatsApp, sin comisiones de apps.">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          carbon: '#0D0D0D',
+          card: '#181818',
+          card2: '#1F1F1F',
+          crimson: '#DC2626',
+          crimsonDeep: '#991B1B',
+          gold: '#EAB308',
+          goldSoft: '#FDE68A',
+        },
+        fontFamily: {
+          display: ['"Noto Serif SC"', 'serif'],
+          body: ['Inter', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+
+<style>
+  * { scroll-behavior: smooth; }
+  body { background-color: #0D0D0D; }
+
+  /* --- Signature: lattice / celosía oriental de fondo --- */
+  .lattice-bg {
+    background-image:
+      repeating-linear-gradient(45deg, rgba(234,179,8,0.05) 0px, rgba(234,179,8,0.05) 1px, transparent 1px, transparent 26px),
+      repeating-linear-gradient(-45deg, rgba(234,179,8,0.05) 0px, rgba(234,179,8,0.05) 1px, transparent 1px, transparent 26px);
+  }
+
+  /* --- Signature: sello/stamp rojo --- */
+  .seal {
+    background: #DC2626;
+    border: 2px solid #EAB308;
+    box-shadow: 0 0 0 1px rgba(234,179,8,0.25), 0 6px 18px rgba(220,38,38,0.35);
+  }
+
+  /* --- Divisor tipo trazo de pincel --- */
+  .brush-divider {
+    height: 6px;
+    background: linear-gradient(90deg, transparent 0%, #EAB308 15%, #DC2626 50%, #EAB308 85%, transparent 100%);
+    clip-path: polygon(0% 40%, 5% 0%, 20% 60%, 35% 10%, 50% 70%, 65% 5%, 80% 55%, 95% 15%, 100% 45%, 100% 60%, 95% 100%, 80% 45%, 65% 95%, 50% 30%, 35% 90%, 20% 40%, 5% 100%, 0% 65%);
+    opacity: 0.85;
+  }
+
+  @keyframes pulse-ring {
+    0% { box-shadow: 0 0 0 0 rgba(220,38,38,0.55); }
+    70% { box-shadow: 0 0 0 14px rgba(220,38,38,0); }
+    100% { box-shadow: 0 0 0 0 rgba(220,38,38,0); }
+  }
+  .wa-pulse { animation: pulse-ring 2.2s cubic-bezier(0.4,0,0.6,1) infinite; }
+
+  @keyframes float-slow {
+    0%,100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+  .float-slow { animation: float-slow 4.5s ease-in-out infinite; }
+
+  .card-hover { transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+  .card-hover:hover { transform: translateY(-6px); border-color: #EAB308; box-shadow: 0 12px 30px rgba(0,0,0,0.5); }
+
+  .tab-btn.active {
+    background-color: #DC2626;
+    color: #fff;
+    border-color: #EAB308;
+  }
+
+  ::-webkit-scrollbar { height: 6px; width: 8px; }
+  ::-webkit-scrollbar-thumb { background: #DC2626; border-radius: 10px; }
+  ::-webkit-scrollbar-track { background: #181818; }
+
+  .text-shadow-gold { text-shadow: 0 2px 20px rgba(234,179,8,0.25); }
+</style>
+</head>
+
+<body class="bg-carbon text-stone-200 font-body antialiased">
+
+<!-- ===================== HEADER ===================== -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-carbon/90 backdrop-blur-md border-b border-white/5">
+  <div class="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 seal rounded-md flex items-center justify-center rotate-3">
+        <span class="text-white font-display font-black text-lg">吉</span>
+      </div>
+      <div class="leading-tight">
+        <p class="font-display font-bold text-lg text-stone-50 tracking-wide">Bello Oriente</p>
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gold">Comida China</p>
+      </div>
+    </div>
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-stone-300">
+      <a href="#menu" class="hover:text-gold transition-colors">Menú</a>
+      <a href="#ubicacion" class="hover:text-gold transition-colors">Ubicación</a>
+      <a href="#resenas" class="hover:text-gold transition-colors">Reseñas</a>
+    </nav>
+    <a href="https://wa.me/56222861357?text=Hola%20Bello%20Oriente%2C%20quisiera%20pedir%3A%20"
+       target="_blank" rel="noopener"
+       class="hidden sm:flex items-center gap-2 bg-crimson hover:bg-crimsonDeep border border-gold/70 text-white text-sm font-semibold px-4 py-2 rounded-full transition-colors">
+      <i class="fa-brands fa-whatsapp text-base"></i> Pedir Ahora
+    </a>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="relative pt-32 pb-24 lattice-bg overflow-hidden">
+  <div class="absolute -top-24 -right-24 w-96 h-96 bg-crimson/20 rounded-full blur-3xl"></div>
+  <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-gold/10 rounded-full blur-3xl"></div>
+
+  <div class="relative max-w-6xl mx-auto px-5 text-center">
+    <div class="inline-flex items-center gap-2 border border-gold/40 text-gold text-xs font-semibold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full mb-6">
+      <i class="fa-solid fa-star"></i> 4.9 en Google Maps
+    </div>
+
+    <h1 class="font-display font-black text-4xl sm:text-6xl text-stone-50 text-shadow-gold leading-tight">
+      Bello Oriente <span class="text-crimson">—</span> Comida China
+    </h1>
+    <p class="mt-5 text-base sm:text-lg text-stone-400 max-w-xl mx-auto">
+      El sabor tradicional de Av. La Florida 7420 en tu mesa.
+    </p>
+
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <span class="flex items-center gap-2 bg-card border border-white/10 text-stone-300 text-xs sm:text-sm px-4 py-2 rounded-full">
+        <i class="fa-solid fa-motorcycle text-gold"></i> Envío Directo
+      </span>
+      <span class="flex items-center gap-2 bg-card border border-white/10 text-stone-300 text-xs sm:text-sm px-4 py-2 rounded-full">
+        <i class="fa-solid fa-bowl-food text-gold"></i> Platos Contundentes
+      </span>
+      <span class="flex items-center gap-2 bg-card border border-white/10 text-stone-300 text-xs sm:text-sm px-4 py-2 rounded-full">
+        <i class="fa-solid fa-hand-holding-dollar text-gold"></i> Sin Comisiones de Apps
+      </span>
+    </div>
+
+    <div class="mt-10">
+      <a href="https://wa.me/56222861357?text=Hola%20Bello%20Oriente%2C%20quisiera%20pedir%3A%20"
+         target="_blank" rel="noopener"
+         class="wa-pulse inline-flex items-center gap-3 bg-crimson hover:bg-crimsonDeep text-white font-bold text-base sm:text-lg px-8 py-4 rounded-full border-2 border-gold shadow-xl transition-colors">
+        <i class="fa-brands fa-whatsapp text-2xl"></i> Pedir por WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <div class="brush-divider mt-16 mx-auto max-w-4xl"></div>
+</section>
+
+<!-- ===================== MENU ===================== -->
+<section id="menu" class="max-w-6xl mx-auto px-5 py-20">
+  <div class="text-center mb-10">
+    <p class="text-gold text-xs uppercase tracking-[0.3em] font-semibold mb-2">Nuestra Carta</p>
+    <h2 class="font-display font-bold text-3xl sm:text-4xl text-stone-50">Menú Interactivo</h2>
+  </div>
+
+  <!-- Tabs -->
+  <div id="tabs" class="flex flex-wrap justify-center gap-2 mb-10">
+    <button data-filter="todos" class="tab-btn active border border-white/10 bg-card text-stone-200 text-sm font-semibold px-5 py-2 rounded-full transition-colors">Todos</button>
+    <button data-filter="promos" class="tab-btn border border-white/10 bg-card text-stone-200 text-sm font-semibold px-5 py-2 rounded-full transition-colors">Colaciones / Promos</button>
+    <button data-filter="carne" class="tab-btn border border-white/10 bg-card text-stone-200 text-sm font-semibold px-5 py-2 rounded-full transition-colors">Carne / Pollo</button>
+    <button data-filter="arroz" class="tab-btn border border-white/10 bg-card text-stone-200 text-sm font-semibold px-5 py-2 rounded-full transition-colors">Arroz / Fideos</button>
+    <button data-filter="entradas" class="tab-btn border border-white/10 bg-card text-stone-200 text-sm font-semibold px-5 py-2 rounded-full transition-colors">Entradas</button>
+  </div>
+
+  <!-- Grid -->
+  <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+</section>
+
+<div class="brush-divider mx-auto max-w-4xl mb-4"></div>
+
+<!-- ===================== UBICACION ===================== -->
+<section id="ubicacion" class="max-w-6xl mx-auto px-5 py-20">
+  <div class="text-center mb-10">
+    <p class="text-gold text-xs uppercase tracking-[0.3em] font-semibold mb-2">Visítanos</p>
+    <h2 class="font-display font-bold text-3xl sm:text-4xl text-stone-50">Ubicación y Contacto</h2>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+    <div class="bg-card border border-white/10 rounded-2xl p-8 flex flex-col justify-between">
+      <div class="space-y-6">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-full bg-crimson/15 border border-crimson/40 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-location-dot text-crimson"></i>
+          </div>
+          <div>
+            <p class="font-semibold text-stone-100">Dirección</p>
+            <p class="text-stone-400 text-sm">Av. La Florida 7420, Región Metropolitana</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-full bg-gold/15 border border-gold/40 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-clock text-gold"></i>
+          </div>
+          <div>
+            <p class="font-semibold text-stone-100">Horarios</p>
+            <p class="text-stone-400 text-sm">Lunes a Domingo: Cierra a las 23:00 hrs</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-full bg-crimson/15 border border-crimson/40 flex items-center justify-center shrink-0">
+            <i class="fa-brands fa-whatsapp text-crimson"></i>
+          </div>
+          <div>
+            <p class="font-semibold text-stone-100">Teléfono / WhatsApp</p>
+            <p class="text-stone-400 text-sm">(2) 2286 1357</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-full bg-gold/15 border border-gold/40 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-star text-gold"></i>
+          </div>
+          <div>
+            <p class="font-semibold text-stone-100">Calificación</p>
+            <p class="text-stone-400 text-sm">4.9 / 5 en Google Maps</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 flex flex-col sm:flex-row gap-3">
+        <a href="https://www.google.com/maps/place/Bello+Oriente/@-33.5217979,-70.5783207,17z/data=!4m15!1m8!3m7!1s0x9662d0ff14cdd5fb:0x56193d2879e40e40!2sAv.+La+Florida+7420,+8270890+Santiago,+La+Florida,+Regi%C3%B3n+Metropolitana!3b1!8m2!3d-33.5217979!4d-70.5783207!16s%2Fg%2F11lm17zkm5!3m5!1s0x9662d0ff3f64ef3d:0xd0667a49fce16eef!8m2!3d-33.5218012!4d-70.5786835!16s%2Fg%2F1v_z5j97?entry=ttu&g_ep=EgoyMDI2MDgxNy4wIKXMDSoASAFQAw%3D%3D"
+           target="_blank" rel="noopener"
+           class="flex-1 text-center bg-gold hover:bg-goldSoft text-carbon font-bold text-sm px-5 py-3 rounded-full transition-colors">
+          <i class="fa-solid fa-diamond-turn-right mr-2"></i> Cómo llegar
+        </a>
+        <a href="https://wa.me/56222861357?text=Hola%20Bello%20Oriente%2C%20quisiera%20pedir%3A%20"
+           target="_blank" rel="noopener"
+           class="flex-1 text-center bg-crimson hover:bg-crimsonDeep text-white font-bold text-sm px-5 py-3 rounded-full border border-gold/50 transition-colors">
+          <i class="fa-brands fa-whatsapp mr-2"></i> Escribir por WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="rounded-2xl overflow-hidden border border-white/10 min-h-[320px]">
+      <iframe
+        title="Mapa Bello Oriente"
+        class="w-full h-full min-h-[320px]"
+        src="https://www.google.com/maps?q=Av.+La+Florida+7420,+La+Florida,+Chile&output=embed"
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== RESEÑAS & GOOGLE MAPS ===================== -->
+<section id="resenas" class="max-w-6xl mx-auto px-5 pb-20">
+  <div class="bg-card border border-gold/30 rounded-2xl p-8 text-center relative overflow-hidden shadow-2xl">
+    <!-- Luz decorativa de fondo -->
+    <div class="absolute -top-12 -left-12 w-40 h-40 bg-gold/10 rounded-full blur-2xl"></div>
+
+    <div class="relative z-10">
+      <div class="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 text-gold text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
+        <i class="fa-brands fa-google text-sm"></i> Opiniones de nuestros clientes
+      </div>
+
+      <div class="flex justify-center items-center gap-1 text-gold text-2xl mb-2">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star-half-stroke"></i>
+        <span class="text-stone-50 text-lg font-bold ml-2">4.9 / 5</span>
+      </div>
+
+      <p class="text-stone-400 text-xs sm:text-sm mb-6">Basado en las experiencias reales en Google Maps</p>
+
+      <div class="bg-carbon/60 border border-white/5 rounded-xl p-5 max-w-2xl mx-auto mb-8 text-left">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-9 h-9 rounded-full bg-crimson/20 border border-crimson/40 flex items-center justify-center font-bold text-stone-200 text-sm">
+            C
+          </div>
+          <div>
+            <p class="text-stone-200 font-semibold text-sm">
+Sofía Pérez Rasse</p>
+            <div class="flex text-gold text-xs">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <p class="text-stone-300 text-sm italic">"Fuimos a celebrar el cumpleaños de mi papá y nos gustó mucho. Atienden muy bien desde la persona que estaciona los autos, la recepcionista, las meseras en verdad todos.
+Los platos enormes y la comida muy rica, yo elegí un plato vegetariano y estaba muy rico.
+Los jugos naturales 10/10 ❤️"</p>
+      </div>
+<a href="https://search.google.com/local/writereview?placeid=ChIJPe9kP__QYpYR727h_El6ZtA"
+           target="_blank" rel="noopener"
+           class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-gold to-yellow-600 hover:from-yellow-500 hover:to-gold text-carbon font-extrabold text-sm px-6 py-3.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5">
+          <i class="fa-brands fa-google text-lg"></i> Dejar una Rese&ntilde;a en Google
+        </a>
+<p class="text-stone-500 text-xs mt-3">&iquest;Nos visitaste o pediste a domicilio? &iexcl;Tu opini&oacute;n nos ayuda a crecer!</p>    
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="border-t border-white/5 py-10">
+  <div class="max-w-6xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 seal rounded-md flex items-center justify-center">
+        <span class="text-white font-display font-black text-sm">吉</span>
+      </div>
+      <p class="text-stone-400 text-sm">Bello Oriente — Comida China © 2026</p>
+    </div>
+    <p class="text-stone-500 text-xs">Av. La Florida 7420, La Florida</p>
+  </div>
+</footer>
+
+<!-- ===================== BARRA FLOTANTE CARRITO ===================== -->
+<div id="cart-bar" class="fixed bottom-0 left-0 right-0 z-50 bg-card2 border-t-2 border-gold p-4 shadow-2xl translate-y-full transition-transform duration-300">
+  <div class="max-w-4xl mx-auto flex items-center justify-between gap-4">
+    <div>
+      <p class="text-xs text-gold uppercase font-semibold tracking-wider">Tu Pedido (<span id="cart-count">0</span> items)</p>
+      <p id="cart-total" class="text-xl font-bold text-stone-50">$0</p>
+    </div>
+    <button id="btn-send-wa" class="wa-pulse bg-crimson hover:bg-crimsonDeep text-white font-bold px-6 py-3 rounded-full border border-gold flex items-center gap-2 text-sm transition-colors">
+      <i class="fa-brands fa-whatsapp text-lg"></i> Enviar Pedido
+    </button>
+  </div>
+</div>
+
+<script>
+  // Número de teléfono extraído de la ficha de Google Maps (+56 2 2286 1357)
+  const PHONE = "56967148890";
+  
+  const productos = [
+    { id: 1, nombre: "Wantán Frito (10 un)", precio: 3500, cat: "entradas", desc: "Crujientes wantanes fritos, servidos con salsa agridulce.", icon: "fa-solid fa-cookie-bite", img: "" },
+    { id: 2, nombre: "Arrollado Primavera (5 un)", precio: 4200, cat: "entradas", desc: "Clásico arrollado primavera relleno de verduras salteadas.", icon: "fa-solid fa-seedling", img: "" },
+    { id: 3, nombre: "Carne Mongoliana", precio: 7900, cat: "carne", desc: "Tiernos trozos de carne con cebollín sofrito en salsa de soya tradicional.", icon: "fa-solid fa-drumstick-bite", img: "" },
+    { id: 4, nombre: "Pollo Chapsui", precio: 7200, cat: "carne", desc: "Salteado de verduras frescas con pollo y especias orientales.", icon: "fa-solid fa-drumstick-bite", img: "" },
+    { id: 5, nombre: "Mechada Carioca", precio: 8500, cat: "carne", desc: "Carne mechada al wok con salsa carioca, dulce y sabrosa.", icon: "fa-solid fa-fire-burner", img: "" },
+    { id: 6, nombre: "Arroz Chaufán Especial", precio: 4500, cat: "arroz", desc: "Arroz salteado con huevo, cerdo, camarón y verduras.", icon: "fa-solid fa-bowl-rice", img: "" },
+    { id: 7, nombre: "Diente de Dragón", precio: 4800, cat: "arroz", desc: "Fideos de arroz salteados al estilo tradicional de la casa.", icon: "fa-solid fa-bowl-rice", img: "" },
+    { id: 8, nombre: "Menú 2 Personas", precio: 15990, cat: "promos", desc: "Entrada + plato fuerte + arroz, pensado para compartir.", icon: "fa-solid fa-people-group", img: "" },
+  ];
+
+  const catLabel = { entradas: "Entradas", carne: "Carne / Pollo", arroz: "Arroz / Fideos", promos: "Promo" };
+  const grid = document.getElementById("menu-grid");
+  let carrito = {};
+
+  function formatCLP(n) {
+    return "$" + n.toLocaleString("es-CL");
+  }
+
+  function renderMenu(filter) {
+    grid.innerHTML = "";
+    const lista = filter === "todos" ? productos : productos.filter(p => p.cat === filter);
+
+    lista.forEach(p => {
+      const qty = carrito[p.id] || 0;
+      const card = document.createElement("div");
+      card.className = "card-hover bg-card border border-white/10 rounded-2xl overflow-hidden flex flex-col";
+      
+      const mediaHTML = p.img 
+        ? `<img src="${p.img}" alt="${p.nombre}" class="w-full h-40 object-cover border-b border-white/5" onerror="this.onerror=null; this.parentNode.innerHTML='<div class=\'h-40 bg-gradient-to-br from-crimson/25 to-carbon flex items-center justify-center border-b border-white/5 relative\'><i class=\'${p.icon} text-5xl text-gold/80\'></i></div>';">`
+        : `<div class="h-40 bg-gradient-to-br from-crimson/25 to-carbon flex items-center justify-center border-b border-white/5 relative">
+            <i class="${p.icon} text-5xl text-gold/80"></i>
+           </div>`;
+
+      card.innerHTML = `
+        <div class="relative">
+          ${mediaHTML}
+          <span class="absolute top-3 left-3 text-[10px] uppercase tracking-wider font-semibold bg-carbon/80 border border-gold/30 text-gold px-2 py-1 rounded-full">${catLabel[p.cat]}</span>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <h3 class="font-display font-bold text-stone-50 text-lg leading-snug">${p.nombre}</h3>
+          <p class="text-stone-400 text-sm mt-2 flex-1">${p.desc}</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="seal text-white font-bold text-sm px-3 py-1.5 rounded-lg">${formatCLP(p.precio)}</span>
+            <div class="flex items-center gap-2 bg-carbon border border-white/10 rounded-full p-1">
+              <button onclick="updateQty(${p.id}, -1)" class="w-8 h-8 rounded-full bg-card hover:bg-crimson text-white flex items-center justify-center font-bold text-sm transition-colors">-</button>
+              <span id="qty-${p.id}" class="w-6 text-center text-sm font-semibold text-stone-100">${qty}</span>
+              <button onclick="updateQty(${p.id}, 1)" class="w-8 h-8 rounded-full bg-gold hover:bg-goldSoft text-carbon flex items-center justify-center font-bold text-sm transition-colors">+</button>
+            </div>
+          </div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  function updateQty(id, delta) {
+    const current = carrito[id] || 0;
+    const next = current + delta;
+    if (next <= 0) {
+      delete carrito[id];
+    } else {
+      carrito[id] = next;
+    }
+    
+    const qtyEl = document.getElementById(`qty-${id}`);
+    if (qtyEl) qtyEl.textContent = carrito[id] || 0;
+    
+    updateCartBar();
+  }
+
+  function updateCartBar() {
+    const bar = document.getElementById("cart-bar");
+    const countEl = document.getElementById("cart-count");
+    const totalEl = document.getElementById("cart-total");
+    
+    let totalItems = 0;
+    let totalPrice = 0;
+
+    Object.keys(carrito).forEach(id => {
+      const p = productos.find(prod => prod.id == id);
+      const q = carrito[id];
+      totalItems += q;
+      totalPrice += p.precio * q;
+    });
+
+    countEl.textContent = totalItems;
+    totalEl.textContent = formatCLP(totalPrice);
+
+    if (totalItems > 0) {
+      bar.classList.remove("translate-y-full");
+    } else {
+      bar.classList.add("translate-y-full");
+    }
+  }
+
+  document.getElementById("btn-send-wa").addEventListener("click", () => {
+    let msg = "*NUEVO PEDIDO WEB*\n\n";
+    let total = 0;
+
+    Object.keys(carrito).forEach(id => {
+      const p = productos.find(prod => prod.id == id);
+      const q = carrito[id];
+      const sub = p.precio * q;
+      total += sub;
+      msg += `• ${q}x ${p.nombre} (${formatCLP(sub)})\n`;
+    });
+
+    msg += `\n*TOTAL:* ${formatCLP(total)}\n\nPor favor confirmar disponibilidad y tiempo estimado.`;
+
+    const url = `https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`;
+    window.open(url, "_blank");
+  });
+
+  const tabs = document.querySelectorAll(".tab-btn");
+  tabs.forEach(btn => {
+    btn.addEventListener("click", () => {
+      tabs.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      renderMenu(btn.dataset.filter);
+    });
+  });
+
+  renderMenu("todos");
+</script>
+</body>
+</html>
